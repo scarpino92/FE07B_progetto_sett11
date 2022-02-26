@@ -88,7 +88,7 @@ export class CartPage implements OnInit {
   submit(f: NgForm) {
     console.log(f.value);
     alert(
-      `Il tuo ordine è stato inviato con successo! ✅ \n Numero Ordine: #${Math.floor(
+      `Il tuo ordine è stato inviato con successo! ✅ \n Numero Ordine: #00${Math.floor(
         Math.random() * 10001
       )}`
     );
