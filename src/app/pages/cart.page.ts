@@ -22,7 +22,7 @@ import { Product } from '../models/products';
                   *ngFor="let item of cart"
                 >
                   {{ item.name }}
-                  <span class="bg-warning rounded">{{
+                  <span class="bg-warning rounded px-1">{{
                     item.price | currency: 'EUR'
                   }}</span>
                 </span>
