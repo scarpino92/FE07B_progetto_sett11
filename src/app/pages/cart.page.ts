@@ -32,7 +32,6 @@ import { Product } from '../models/products';
                 <div class="form-group fs-4 my-2">
                   <label for="nome"> Nome </label>
                   <input
-                    ngModel
                     id="nome"
                     type="text"
                     class="d-flex justify-content-end"
@@ -42,7 +41,6 @@ import { Product } from '../models/products';
                 <div class="form-group fs-4 my-2">
                   <label for="indirizzo"> Indirizzo </label>
                   <input
-                    ngModel
                     id="indirizzo"
                     type="text"
                     class="d-flex justify-content-end"
