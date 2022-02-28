@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Product } from '../models/products';
 
@@ -28,7 +28,7 @@ import { Product } from '../models/products';
                 </span>
               </div>
               <h2 class="mt-2">Completa l'ordine</h2>
-              <form #form="ngForm" (ngSubmit)="submit(form)">
+              <form (ngSubmit)="submit()" [formGroup]="form">
                 <div class="form-group fs-4 my-2">
                   <label for="nome"> Nome </label>
                   <input
@@ -36,6 +36,7 @@ import { Product } from '../models/products';
                     id="nome"
                     type="text"
                     class="d-flex justify-content-end"
+                    formControlName="nome"
                   />
                 </div>
                 <div class="form-group fs-4 my-2">
@@ -45,6 +46,7 @@ import { Product } from '../models/products';
                     id="indirizzo"
                     type="text"
                     class="d-flex justify-content-end"
+                    formControlName="indirizzo"
                   />
                 </div>
                 <button class="btn btn-warning m-3 fs-5" type="submit">
@@ -73,8 +75,13 @@ import { Product } from '../models/products';
 export class CartPage implements OnInit {
   cart: Product[] | undefined;
   sub!: Subscription;
+  form: FormGroup;
 
-  constructor(private CartService: CartService) {}
+  constructor(private CartService: CartService, public fb: FormBuilder) {
+    this.form = fb.group({
+     'nome':['',Validators.required],
+      'indirizzo':['',Validators.required]
+  });
 
   ngOnInit(): void {
     this.cart = this.CartService.getItems();
@@ -85,14 +92,22 @@ export class CartPage implements OnInit {
     });
   }
 
-  submit(f: NgForm) {
-    console.log(f.value);
+  submit(): void {
+    if(!this.form.valid){
+      alert('Compilare tutti i campi obbligatori!');
+      return;
+    } else {
     alert(
       `Il tuo ordine è stato inviato con successo! ✅ \n Numero Ordine: #00${Math.floor(
         Math.random() * 10001
       )}`
     );
+    console.log(
+      this.form.controls['nome'].value,
+      this.form.controls['indirizzo'].value
+    );
     this.CartService.clearCart();
+    }
   }
 
   ngOnDestroy(): void {
