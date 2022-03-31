@@ -1,4 +1,10 @@
-# Cart
+# CartPage con Angular
+Progetto di SPA con Angular e Bootstrap. Il progetto consiste in una serie di prodotti richiamati da file JSON, selezionabili ed inseribili in un carrello dove si può completare l'acquisto con l'aggiunta dei dati per la spedizione.<br>
+Una volta completato l'acquisto il carrello si svuota.
+
+<img src="images/ListaProd.jpg" width="400"><br><span>Pagina con la lista dei prodotti disponibili</span><br><br>
+<img src="images/DettagliProd.jpg" width="400"><br><span>Pagina con i dettagli del prodotto selezionato</span><br><br>
+<img src="images/Cart.jpg" width="400"><br><span>Pagina del carrello per completare l'acquisto</span><br><br>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
