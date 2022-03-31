@@ -12,7 +12,7 @@ import { CartService } from '../cart.service';
         <div class="col">
           <h1 class="text-center">Dettaglio del prodotto</h1>
           <div *ngIf="product" class="rounded bg-dark text-white p-3">
-            <h3>{{ product.name }} <i class="bi bi-phone"></i></h3>
+            <h3 class="text-warning">{{ product.name }} <i class="bi bi-phone"></i></h3>
             <h4>{{ product.price | currency: 'EUR' }}</h4>
             <p class="fs-5">{{ product.description }}</p>
             <button
