@@ -15,7 +15,7 @@ import { ProdutcsService } from '../produtcs.service';
             style="width: 18rem;"
           >
             <div class="card-body bg-dark rounded">
-              <h5 class="card-title fs-4">
+              <h5 class="card-title text-warning fs-4">
                 {{ product.name }} <i class="bi bi-phone"></i>
               </h5>
               <p *ngIf="product.description" class="card-text fs-5">
