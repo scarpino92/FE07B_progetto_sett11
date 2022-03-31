@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   template: `
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand fs-3 mx-3">EpicPhones</a>
+        <a class="navbar-brand text-warning fs-3 mx-3">EpicPhones</a>
         <button
           class="navbar-toggler"
           type="button"
