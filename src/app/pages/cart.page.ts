@@ -11,7 +11,7 @@ import { Product } from '../models/products';
       <div class="row">
         <div class="col">
           <ng-container *ngIf="cart && cart.length > 0; else cVuoto">
-            <h1 class="text-center">
+            <h1 class="text-center text-warning my-4">
               <i class="bi bi-cart-check-fill"></i>Carrello
             </h1>
             <div class="bg-dark text-white p-4 rounded">
