@@ -16,8 +16,8 @@ import { Product } from '../models/products';
             </h1>
             <div class="bg-dark text-white p-4 rounded">
               <h2>I tuoi articoli</h2>
-              <div class="list-group text-dark fs-5 fw-bold">
-                <span
+              <div class="list-group text-white fs-5 fw-bold">
+                <div
                   class="list-group-item d-flex align-items-center justify-content-between"
                   *ngFor="let item of cart"
                 >
@@ -25,7 +25,7 @@ import { Product } from '../models/products';
                   <span class="bg-warning rounded px-1">{{
                     item.price | currency: 'EUR'
                   }}</span>
-                </span>
+                </div>
               </div>
               <h2 class="mt-2">Completa l'ordine</h2>
               <form (ngSubmit)="submit()" [formGroup]="form">
@@ -47,14 +47,14 @@ import { Product } from '../models/products';
                     formControlName="indirizzo"
                   />
                 </div>
-                <button class="btn btn-warning m-3 fs-5" type="submit">
+                <button id="acquista" class="btn btn-warning m-3 fs-5" type="submit">
                   Acquista
                 </button>
               </form>
             </div>
           </ng-container>
           <ng-template #cVuoto>
-            <h2 class="text-center fs-1 mt-5">
+            <h2 class="text-center text-white fs-1 mt-5">
               <i class="bi bi-cart3"></i> Il carrello è vuoto
             </h2>
           </ng-template>
@@ -77,9 +77,10 @@ export class CartPage implements OnInit {
 
   constructor(private CartService: CartService, public fb: FormBuilder) {
     this.form = fb.group({
-     'nome':['',Validators.required],
-      'indirizzo':['',Validators.required]
-  });
+      'nome': ['', Validators.required],
+      'indirizzo': ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
     this.cart = this.CartService.getItems();
@@ -94,17 +95,17 @@ export class CartPage implements OnInit {
     if(!this.form.valid){
       alert('Compilare tutti i campi obbligatori!');
       return;
-    } else {
-    alert(
-      `Il tuo ordine è stato inviato con successo! ✅ \n Numero Ordine: #00${Math.floor(
-        Math.random() * 10001
-      )}`
-    );
-    console.log(
-      this.form.controls['nome'].value,
-      this.form.controls['indirizzo'].value
-    );
-    this.CartService.clearCart();
+    }else{
+      alert(
+        `Il tuo ordine è stato inviato con successo! ✅ \n Numero Ordine: #00${Math.floor(
+          Math.random() * 10001
+        )}`
+      );
+      console.log(
+        this.form.controls['nome'].value,
+        this.form.controls['indirizzo'].value
+      );
+      this.CartService.clearCart();
     }
   }
 
